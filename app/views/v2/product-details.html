@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% set productname = EA_Name %}
+
+{% block pageTitle %}
+  {{ productname }} protected product details and specification
+{% endblock %}
+
+{% block header %}
+  {% include "includes/cookie-banner.html" %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: versionServiceName,
+    serviceUrl: "/",
+    containerClasses: "govuk-width-container"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">{{ productname }}</h1>
+
+      {% if EA_Status=="Registered" %}
+          <h2 class="govuk-heading-m">
+            Entry in the
+            {{ "protected designation of origin (PDO) and protected geographical indication (PGI) register" if DEF_Register == "Food and Agri UK PDO" }}
+            {{ "traditional speciality guaranteed (TSG) register" if DEF_Register == "Food and Agri UK TSG" }}
+            {{ "protected spirit drink names scheme register" if DEF_Register == "Spirits" }}
+            {{ "protected wine names scheme register" if DEF_Register == "Wines" }}
+            {{ "protected aromatised wines scheme register" if DEF_Register == "Aromatised wines" }}
+            {{ "traditional terms for wine products register" if DEF_Register == "Traditional Terms" }}
+          </h2>
+      {% endif %}
+
+      {{ govukSummaryList({
+          rows: [
+          {
+            key: {
+              text: "Registered product name"
+            },
+            value: {
+              text: productname
+            }
+          },
+          {
+            key: {
+              text: "Product specification"
+            },
+            value: {
+              html: '<a href="/public/images/pfn-stilton-cheese.pdf">' + productname + " specification (pdf)</a>"
+            }
+          },
+          {
+            key: {
+              text: "Status"
+            },
+            value: {
+              text: EA_Status
+            }
+          },
+          {
+            key: {
+              text: "Award designation"
+            },
+            value: {
+              text: EA_Type
+            }
+          },
+          {
+            key: {
+              text: "Country of origin"
+            },
+            value: {
+              text: EA_Country
+            }
+          },
+          {
+            key: {
+              text: "Date of registration"
+            },
+            value: {
+              text: "31 December 2020"
+            }
+          },
+          {
+            key: {
+              text: "Class"
+            },
+            value: {
+              text: EA_ProductCategory
+            }
+          },
+          {
+            key: {
+              text: "Notes"
+            },
+            value: {
+              text: "None"
+            }
+          },
+          {
+            key: {
+              text: "Unique ID"
+            },
+            value: {
+              text:
+              DEF_Register | truncate(1, true, "") | upper + "00" +  [1,2,3,4,5,6,7,8,9] | random + [1,2,3,4,5,6,7,8,9] | random
+            }
+          }
+        ]
+      }) }}
+
+
+      <h2 class="govuk-heading-m">Other information</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Date of original registration with the EU"
+            },
+            value: {
+              text: EA_DateRegistration | formatLongDate
+            }
+          }
+          ]
+        }) }}
+
+      {% include "./includes/warning.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

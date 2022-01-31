@@ -1,0 +1,8 @@
+{% set themes = [
+{"value": "Environmental management and sustainability","text": "Environmental management and sustainability"},
+{"value": "Increasing resilience to flooding","text": "Increasing resilience to flooding"},
+{"value": "Managing flood incidents","text": "Managing flood incidents"},
+{"value": "Policy, governance and funding","text": "Policy, governance and funding"},
+{"value": "Understanding risks from all sources of flooding","text": "Understanding risks from all sources of flooding"},
+{"value": "Whole life asset management","text": "Whole life asset management"}
+] %}
