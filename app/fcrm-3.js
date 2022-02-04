@@ -31,6 +31,11 @@ router.get('/product-details-default/:reportNumber', function(req, res) {
 
 
 // Functions
+
+function getReportData(reportData) {
+    return require('./views/' + folder + '/data/reports/reports.json')
+}
+
 function findReport(reportNumber) {
     return getReportData('reports').find(element => element.id === reportNumber)
 }
@@ -54,8 +59,6 @@ function filterReports(searchText,topics,themes,status) {
     return reportData
 }
 
-function getReportData(reportData) {
-    return require('./views/' + folder + '/data/reports/reports.json')
-}
+
 
 module.exports = router
