@@ -9,35 +9,34 @@
 <!-- Product type -->
 <div class="gir_filterbox">
 
-
   <!-- themes -->
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Category
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <!-- Registers -->
-        {% from "../data/lists/themes.json" import themes %}
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        Category
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <!-- Registers -->
+      {% from "../data/lists/themes.json" import themes %}
 
-        {{ govukCheckboxes({
-                  idPrefix: "themes",
-                  name: "themes",
-                  classes: "govuk-checkboxes--small",
-                  fieldset: {
-                    legend: {
-                      text: "",
-                      isPageHeading: false,
-                      classes: "govuk-fieldset__legend--s"
-                    }
-                  },
-                  items: themes
-                }) }}
-      </div>
-    </details>
+      {{ govukCheckboxes({
+          idPrefix: "themes",
+          name: "themes",
+          classes: "govuk-checkboxes--small",
+          fieldset: {
+            legend: {
+              text: "",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: themes
+        }) }}
+    </div>
+  </details>
 
-            <!-- topics -->
+  <!-- topics -->
   <details class="govuk-details" data-module="govuk-details">
     <summary class="govuk-details__summary">
       <span class="govuk-details__summary-text">
@@ -49,22 +48,22 @@
       {% from "../data/lists/topics.json" import topics %}
 
       {{ govukCheckboxes({
-                idPrefix: "topics",
-                name: "topics",
-                classes: "govuk-checkboxes--small",
-                fieldset: {
-                  legend: {
-                    text: "",
-                    isPageHeading: false,
-                    classes: "govuk-fieldset__legend--s"
-                  }
-                },
-                items: topics
-              }) }}
+        idPrefix: "topics",
+        name: "topics",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: topics
+      }) }}
     </div>
   </details>
 
-<!-- status -->
+  <!-- status -->
   <details class="govuk-details" data-module="govuk-details">
     <summary class="govuk-details__summary">
       <span class="govuk-details__summary-text">
@@ -76,18 +75,18 @@
       {% from "../data/lists/status.json" import status %}
 
       {{ govukCheckboxes({
-                idPrefix: "status",
-                name: "status",
-                classes: "govuk-checkboxes--small",
-                fieldset: {
-                  legend: {
-                    text: "",
-                    isPageHeading: false,
-                    classes: "govuk-fieldset__legend--s"
-                  }
-                },
-                items: status
-              }) }}
+        idPrefix: "status",
+        name: "status",
+        classes: "govuk-checkboxes--small",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: status
+      }) }}
     </div>
   </details>
 
@@ -100,25 +99,23 @@
     </summary>
     <div class="govuk-details__text">
 
-      
+      {{ govukInput({
+        label: {
+          text: "After (For example, 2005 or 21/11/2014)"
+        },
+        classes: "govuk-input--width-15",
+        id: "width-15",
+        name: "width-15"
+      }) }}
 
       {{ govukInput({
-  label: {
-    text: "After (For example, 2005 or 21/11/2014)"
-  },
-  classes: "govuk-input--width-15",
-  id: "width-15",
-  name: "width-15"
-}) }}
-
-{{ govukInput({
-  label: {
-    text: "Before (For example, 2005 or 21/11/2014)"
-  },
-  classes: "govuk-input--width-15",
-  id: "width-15",
-  name: "width-15"
-}) }}
+        label: {
+          text: "Before (For example, 2005 or 21/11/2014)"
+        },
+        classes: "govuk-input--width-15",
+        id: "width-15",
+        name: "width-15"
+      }) }}
 
     </div>
   </details>
